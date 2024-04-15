@@ -1,9 +1,8 @@
 {%- css %}.postlist { counter-reset: start-from {{ (postslistCounter or postslist.length) + 1 }} }{% endcss %}
-<ol reversed class="postlist">
+<ol reversed class="postlist list-group list-group-flush" style="width: 18rem;">
 {% for post in postslist | reverse %}
-	<li class="postlist-item{% if post.url == url %} postlist-item-active{% endif %}">
-		<a href="{{ post.url }}" class="postlist-link">{% if post.data.title %}{{ post.data.title }}{% else %}<code>{{ post.url }}</code>{% endif %}</a>
-		<time class="postlist-date" datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate("LLLL yyyy") }}</time>
+	<li class="postlist-item{% if post.url == url %} postlist-item-active{% endif %} list-group-item" style="padding: 2rem;">
+		<a href="{{ post.url }}" class="postlist-link card-title">{% if post.data.title %}{{ post.data.title }}{% else %}<code>{{ post.url }}</code>{% endif %}</a>
 	</li>
 {% endfor %}
 </ol>
