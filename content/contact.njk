@@ -1,14 +1,21 @@
 ---
 layout: layouts/base.njk
+eleventyNavigation:
+  key: Contact
+  order: 2
 ---
 <form method="POST" netlify name="contact">
     <div class="mb-3">
         <label for="email" class="form-label">Email address</label>
-        <input type="email" class="form-control" name="email" id="email" placeholder="name@example.com">
+        <input type="email" class="form-control" name="email" id="email" placeholder="name@example.com" required>
       </div>
       <div class="mb-3">
-        <label for="randomtext" class="form-label">Example textarea</label>
-        <textarea class="form-control" name="randomtext" id="randomtext" rows="3"></textarea>
+        <label for="message" class="form-label">Message</label>
+        <textarea class="form-control" name="message" id="message" required></textarea>
+      </div>
+      <div class="mb-3">
+        <label for="postcode" class="form-label">Post Code</label>
+        <input class="form-control" name="postcode" id="postcode" placeholder="Please use capitals and a space eg 'SW1A 2AA'" pattern="^(([A-Z][0-9]{1,2})|(([A-Z][A-HJ-Y][0-9]{1,2})|(([A-Z][0-9][A-Z])|([A-Z][A-HJ-Y][0-9]?[A-Z])))) [0-9][A-Z]{2}$" required></input>
       </div>
       <button class="btn btn-lg btn-primary" type="submit">submit</button>
 </form>
